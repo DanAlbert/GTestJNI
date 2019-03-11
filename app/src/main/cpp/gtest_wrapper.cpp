@@ -61,7 +61,6 @@ static void addChild(JNIEnv* env, jobject description, jobject childDescription)
     env->CallVoidMethod(description, gDescription.addChild, childDescription);
 }
 
-
 class JUnitNotifyingListener : public ::testing::EmptyTestEventListener {
 public:
 
