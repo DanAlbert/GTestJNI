@@ -1,7 +1,10 @@
 # The Android Studio .gitignore on GitHub doesn't ignore this, but Studio's
 # generated .gitignore does. It does seem to contain some machine specific
 # paths, so ignore it.
+/.idea/encodings.xml
+/.idea/misc.xml
 /.idea/modules.xml
+/.idea/vcs.xml
 
 # Built application files
 *.apk
