@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.6.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 project(GTestJNI LANGUAGES CXX)
+
+find_package(gtest CONFIG REQUIRED)
 
 add_library(app
   SHARED
@@ -17,20 +19,6 @@ target_include_directories(nativehelper
     src/main/cpp
 )
 
-set(GTEST_PATH ${ANDROID_NDK}/sources/third_party/googletest)
-
-add_library(gtest
-  STATIC
-    ${GTEST_PATH}/src/gtest-all.cc
-)
-
-target_include_directories(gtest
-  PRIVATE
-    ${GTEST_PATH}
-  PUBLIC
-    ${GTEST_PATH}/include
-)
-
 add_library(gtestjni
   STATIC
     src/main/cpp/gtest_wrapper.cpp
@@ -38,7 +26,7 @@ add_library(gtestjni
 
 target_link_libraries(gtestjni
   PRIVATE
-    gtest
+    gtest::gtest
     nativehelper
   PUBLIC
     -uJava_com_android_gtestjni_GtestRunner_nInitialize
@@ -53,6 +41,6 @@ add_library(apptest
 target_link_libraries(apptest
   PRIVATE
     app
-    gtest
+    gtest::gtest
     gtestjni
 )
