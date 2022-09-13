@@ -1,3 +1,4 @@
 # GTest JNI Example
 
-Example of exposing native tests as device-side JUnit tests for Studio.
+This example is obsolete, as this functionality is now available in androidx.
+For more information, see https://github.com/DanAlbert/GTestJNI/issues/1.
